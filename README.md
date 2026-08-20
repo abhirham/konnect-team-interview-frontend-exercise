@@ -61,6 +61,7 @@ When it's ready, please send your recruiter a link to the source code in a GitHu
 
 ### Enhancements Implemented
 
+- **Issue with GIT** There was a weird issue with git where i was unable to push up my commits. So copied over the project to a new dir and redid the commits again.
 - **Using Composition API** Migrated starter code to Composition API aswell for consistency.
 - **Search is server-side, debounced and cancellable.** It calls the `/api/services?q=string` endpoint. It is debounced, and immediate searches cancel out the previous request using an abort controller.
 - **Selected service in the URL.** When you click on a service, I update the URL with the service ID so that when you refresh the page or send the URL to someone else, it will open up the correct service automatically.
