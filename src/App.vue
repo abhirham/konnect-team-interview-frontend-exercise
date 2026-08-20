@@ -1,42 +1,49 @@
 <template>
-  <header>
-    <div class="nav">
+  <header class="app-header">
+    <span class="company-name">Kong</span>
+    <nav class="app-nav">
       <router-link to="/">
         Home
       </router-link>
-    </div>
+    </nav>
   </header>
   <main>
     <router-view />
   </main>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  name: 'App',
-})
-</script>
-
 <style lang="scss" scoped>
-.nav {
-  border-bottom: 1px solid #333;
-  margin-bottom: 4rem;
-  padding: 16px;
+@use '@/styles/variables' as *;
 
-  a {
-    color: blue;
-    font-weight: 700;
+.app-header {
+  align-items: center;
+  background: linear-gradient(to bottom, #09224f, #073382);
+  color: $color-header-text;
+  display: flex;
+  gap: 24px;
+  margin-bottom: 40px;
+  padding: 16px 20px;
+
+  .company-name {
+    font-size: $font-size-card-title;
+    font-weight: $font-weight-bold;
+  }
+
+  .app-nav a {
+    color: $color-header-text;
+    font-weight: $font-weight-semibold;
+    text-decoration: none;
 
     &.router-link-exact-active {
-      color: green;
+      text-decoration: underline;
     }
   }
 }
 </style>
 
 <style lang="scss">
+@use '@/styles/variables' as *;
+
 // Unscoped styles for html and body
 html {
   font-size: 10px;
@@ -45,10 +52,20 @@ html {
 }
 
 body {
-  font-family: Arial, sans-serif;
+  background-color: #f8f8fa;
+  color: $color-text-body;
+  font-family: $font-family-base;
   font-size: 1.6rem;
-  font-weight: 400;
+  font-weight: $font-weight-regular;
   line-height: 1.2;
   margin: 0 auto;
+}
+
+// Form controls don't inherit the page font by default.
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
 }
 </style>

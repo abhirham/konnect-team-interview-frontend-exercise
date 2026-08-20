@@ -57,6 +57,29 @@ When it's ready, please send your recruiter a link to the source code in a GitHu
 
 ---
 
+## Design considerations, assumptions and trade-offs
+
+### Enhancements Implemented
+
+- **Using Composition API** Migrated starter code to Composition API aswell for consistency.
+- **Search is server-side, debounced and cancellable.** It calls the `/api/services?q=string` endpoint. It is debounced, and immediate searches cancel out the previous request using an abort controller.
+- **Selected service in the URL.** When you click on a service, I update the URL with the service ID so that when you refresh the page or send the URL to someone else, it will open up the correct service automatically.
+- **Additional UI States** Ready UI states for loading error and no results.
+- **Only one type pill for a version row** As per the data, each version in this service's details model has only one version (compared to two versions from the markup.), so I excluded the second version on purpose.
+- **Reversed the Avatar sort order** The avatars on the service card are sorted by most recent contribution.
+
+### Excluded on purpose
+
+- **Search and page number in the URL.** Thought about adding the search term and current page to the URL, but this was not a requirement so skipped it.
+- **Did not make use of Pinia** The state for this app was very simple and there was no need for a store.
+- **Did not add sorting or filtering.** I brought this up in the previous interview about adding sorting or filtering to the UI, but the interviewers mentioned that there is no need to implement it, so I skipped it. You could add sort by latency or any other metric, filter by status, etc.
+
+### Possible future enhancements
+
+- **Live Service metrics.** A new endpoint could be created to fetch the metrics for each service, and it could be a pinging sort of endpoint that can continuously update the metrics live.
+
+---
+
 ## Project Setup
 
 ### Clone the repository
